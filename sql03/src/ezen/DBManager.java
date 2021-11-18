@@ -164,4 +164,18 @@ public class DBManager
 			return null; //값 없으면 null 반환
 		}
 	}
+	
+	//select SQL구문 처리 - 값 가져오기
+	public int GetInteger(String culumn)
+	{
+		try
+		{
+			//값 문자열로 가져오기
+			return result.getInt(culumn);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			return 0; //값 없으면 null 반환
+		}
+	}
 }
