@@ -21,4 +21,29 @@ public class MemoDTO extends DBManager
 		sql += "('" + _R(vo.getTitle()) + "','" + _R(vo.getNote()) + "');";
 		return RunSQL(sql);
 	}
+	
+	/* MemoVO¸¦ Select */
+	public MemoVO Select(int no)
+	{
+		MemoVO vo = new MemoVO();
+		
+		//select ½ÇÇà
+		String sql = "";
+		sql += "select * ";
+		sql += "from memo ";
+		sql += "where mno = " + no + ";";
+		if (OpenQuery(sql) == false) return null;
+		if (GetNext() == false) return null;
+		
+		while (GetNext())
+		{
+			vo.setNo(Integer.parseInt(GetValue("mno")));
+			vo.setTitle(GetValue("mtitle"));
+			vo.setNote(GetValue("mnote"));
+			vo.setDate(GetValue("mdate"));
+		}
+		
+		CloseQuery();
+		return vo;
+	}
 }
