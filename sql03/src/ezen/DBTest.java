@@ -13,7 +13,7 @@ public class DBTest
 		{
 			//0-insert, 1-select
 			//2-delete, 3-update
-			//4-select list
+			//4-select list, 5-arraylist
 			int mode = 4;
 			
 			switch (mode)
@@ -60,6 +60,7 @@ public class DBTest
 					for(MemoVO temp : list)
 					{
 						temp.PrintInfo();
+						System.out.println("============================");
 					}
 					break;
 			}
