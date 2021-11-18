@@ -164,7 +164,4 @@ public class DBManager
 			return null; //값 없으면 null 반환
 		}
 	}
-	
-	
-	
 }
