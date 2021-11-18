@@ -12,6 +12,8 @@ public class DBTest
 		vo.PrintInfo();
 		
 		MemoDTO dto = new MemoDTO();
+		dto.DBOpen();
 		dto.Insert(vo);
+		dto.DBClose();
 	}
 }

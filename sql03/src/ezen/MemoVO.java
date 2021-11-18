@@ -28,8 +28,4 @@ public class MemoVO
 		System.out.println("내용: " + note);
 		System.out.println("일자: " + date);
 	}
-	
-	
-	
-	
 }
