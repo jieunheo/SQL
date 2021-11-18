@@ -12,11 +12,13 @@ public class DBTest
 		vo.PrintInfo();
 		
 		MemoDTO dto = new MemoDTO();
-		dto.DBOpen(); //db¿­±â
-		for (int i=0; i<100; i++)
+		if (dto.DBOpen() == true) //db¿­±â
 		{
-			dto.Insert(vo);
+			for (int i=0; i<100; i++)
+			{
+				dto.Insert(vo);
+			}
+			dto.DBClose(); //db´Ý±â
 		}
-		dto.DBClose(); //db´Ý±â
 	}
 }
