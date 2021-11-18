@@ -63,12 +63,16 @@ public class MemoDTO extends DBManager
 		MemoVO[] list = null; //내보낼 객체
 		int count = GetInteger("count"); //가져올 갯수 확인
 		CloseQuery(); //쿼리 닫기
-		
-		list = new MemoVO[count]; //갯수만큼 생성
+
+		if (count <= 0) return null; //값이 없으면 null
+		list = new MemoVO[count];    //갯수만큼 생성
 		
 		//배열에 각 값 추가
 		int i = 0;
-		sql = "select * from memo order by mno;";
+		sql = "select * ";
+		sql += "from memo ";
+		sql += "order by mno;";
+		
 		if (OpenQuery(sql) == false) return null; //쿼리 열기
 		while(GetNext())
 		{
@@ -101,7 +105,7 @@ public class MemoDTO extends DBManager
 //		while(GetNext())
 //		{
 //			MemoVO vo = new MemoVO(); //한줄
-//			vo.setNo(Integer.parseInt(GetValue("mno")));
+//			vo.setNo(GetInteger("mno"));
 //			vo.setTitle(GetValue("mtitle"));
 //			vo.setNote(GetValue("mnote"));
 //			vo.setDate(GetValue("mdate"));
