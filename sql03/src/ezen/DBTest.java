@@ -44,6 +44,7 @@ public class DBTest
 					for(MemoVO item : volist)
 					{
 						if( item != null) item.PrintInfo();
+						System.out.println("============================");
 					}
 					break;
 //				case 5: //select arraylist
