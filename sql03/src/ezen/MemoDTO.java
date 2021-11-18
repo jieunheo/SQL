@@ -46,4 +46,30 @@ public class MemoDTO extends DBManager
 		CloseQuery(); //쿼리 닫기
 		return vo;
 	}
+	
+	/* MemoVO를 delete */
+	public boolean Delete(int no)
+	{
+		//sql구문
+		String sql = "";
+		sql += "delete from memo ";
+		sql += "where mno = " + no + ";";
+
+		//delete 실행
+		return RunSQL(sql);
+	}
+	
+	/* MemoVo를 update */
+	public boolean Update(MemoVO vo)
+	{
+		//sql구문
+		String sql = "";
+		sql += "update memo ";
+		sql += "set mtitle = '" + _R(vo.getTitle()) + "', ";
+		sql += "mnote = '" + _R(vo.getNote()) + "' ";
+		sql += "where mno = " + vo.getNo() + ";";
+
+		//update 실행
+		return RunSQL(sql);
+	}
 }
