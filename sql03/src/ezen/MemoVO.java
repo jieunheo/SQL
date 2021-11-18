@@ -8,6 +8,19 @@ public class MemoVO
 	private String note;  //내용
 	private String date;  //일자
 	
+	/* 생성자 */
+	public MemoVO() {}
+	public MemoVO(String title, String note) {
+		this.title = title;
+		this.note = note;
+	}
+	public MemoVO(int no, String title, String note,String date) {
+		this.no = no;
+		this.title = title;
+		this.note = note;
+		this.date = date;
+	}
+	
 	/* getter */
 	public int    getNo()    { return no;    }
 	public String getTitle() { return title; }
