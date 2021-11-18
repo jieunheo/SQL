@@ -6,20 +6,15 @@ public class DBTest
 {
 	public static void main(String[] args)
 	{
-		MemoVO vo = new MemoVO();
-		vo.setNo(1);
-		vo.setTitle("이것은 제목입니다.");
-		vo.setNote("이것은 내용입니다.");
-		vo.setDate("2021-11-18");
-		vo.PrintInfo();
+		MemoVO vo = new MemoVO();    //memo 객체
+		MemoDTO dto = new MemoDTO(); //memo 컨트롤러
 		
-		MemoDTO dto = new MemoDTO();
 		if (dto.DBOpen() == true) //db열기
 		{
 			//0-insert, 1-select
 			//2-delete, 3-update
 			//4-select list
-			int mode = 5;
+			int mode = 4;
 			
 			switch (mode)
 			{
@@ -46,29 +41,26 @@ public class DBTest
 					break;
 				case 4: //select list
 					MemoVO[] volist = dto.SelectList();
-					for(MemoVO temp : volist)
+					for(MemoVO item : volist)
 					{
-						if( temp != null)
-						{
-							temp.PrintInfo();
-						}
+						if( item != null) item.PrintInfo();
 					}
 					break;
-				case 5: //select arraylist
-					ArrayList<MemoVO> list;
-					list = dto.SelectArray();
-					/*
-					for(int i=0; i < list.size(); i++)
-					{
-						MemoVO item = (MemoVO)list.get(i);
-						item.PrintInfo();
-					}
-					*/
-					for(MemoVO temp : list)
-					{
-						temp.PrintInfo();
-					}
-					break;
+//				case 5: //select arraylist
+//					ArrayList<MemoVO> list;
+//					list = dto.SelectArray();
+//					/*
+//					for(int i=0; i < list.size(); i++)
+//					{
+//						MemoVO item = (MemoVO)list.get(i);
+//						item.PrintInfo();
+//					}
+//					*/
+//					for(MemoVO temp : list)
+//					{
+//						temp.PrintInfo();
+//					}
+//					break;
 			}
 			dto.DBClose(); //db닫기
 		}
