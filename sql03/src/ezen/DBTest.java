@@ -47,21 +47,21 @@ public class DBTest
 						System.out.println("============================");
 					}
 					break;
-//				case 5: //select arraylist
-//					ArrayList<MemoVO> list;
-//					list = dto.SelectArray();
-//					/*
-//					for(int i=0; i < list.size(); i++)
-//					{
-//						MemoVO item = (MemoVO)list.get(i);
-//						item.PrintInfo();
-//					}
-//					*/
-//					for(MemoVO temp : list)
-//					{
-//						temp.PrintInfo();
-//					}
-//					break;
+				case 5: //select arraylist
+					ArrayList<MemoVO> list;
+					list = dto.SelectArray();
+					/* //향상된 for문과 같은 의미
+					for(int i=0; i < list.size(); i++)
+					{
+						MemoVO item = (MemoVO)list.get(i);
+						item.PrintInfo();
+					}
+					*/
+					for(MemoVO temp : list)
+					{
+						temp.PrintInfo();
+					}
+					break;
 			}
 			dto.DBClose(); //db닫기
 		}
