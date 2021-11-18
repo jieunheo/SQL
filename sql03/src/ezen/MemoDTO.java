@@ -19,8 +19,6 @@ public class MemoDTO extends DBManager
 		sql += "(mtitle, mnote) ";
 		sql += "values ";
 		sql += "('" + _R(vo.getTitle()) + "','" + _R(vo.getNote()) + "');";
-		RunSQL(sql);
-		
-		return true;
+		return RunSQL(sql);
 	}
 }
